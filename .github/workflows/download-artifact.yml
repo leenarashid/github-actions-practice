@@ -1,0 +1,18 @@
+name: Download Artifacts
+on:
+  workflow_dispatch:
+jobs:
+  download-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v4
+      - name: Create file
+        run: | 
+             mkdir my-folder2
+             echo "This file is created for download artifact workflow" > my-folder2/output2.txt
+      - name: Upload artifact
+        uses: actions/upload-atrifact@V4
+        with:
+            name: my-artifact
+            path: my-folder2/output.txt
