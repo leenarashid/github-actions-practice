@@ -21,3 +21,5 @@ jobs:
         with:
           name: my-artifact-folder2
           path: my-folder2
+      - name: Verify artifact download
+        run: cat my-folder2/output2.txt
