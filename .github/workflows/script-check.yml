@@ -1,0 +1,19 @@
+name: Script Checker 
+on:
+  workflow_dispatch: 
+jobs:
+  script-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+              python-version: "3.12"
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+      - name: Give Executable Permissions
+        run: chmod +x my-scripy.py
+      - name: Run Script
+        run: ./my-script.py
