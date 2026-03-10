@@ -8,11 +8,11 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v4
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@V5
         with:
               python-version: "3.12"
       - name: Install Dependencies
         run: pip install -r requirements.txt
       
       - name: Run Script
-        run: python my-scripy.py
+        run: python my-script.py
