@@ -1,17 +1,14 @@
-// Load the http module
-const http = require('http');
+const express = require('express'); // dependency
 
-// Define server port
+const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Create the server
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World from Node.js!\n');
+// Simple route
+app.get('/', (req, res) => {
+  res.send('Hello World from Node.js with Express!');
 });
 
-// Start listening
-server.listen(PORT, () => {
+// Start server
+app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}/`);
 });
