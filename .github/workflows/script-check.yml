@@ -14,6 +14,6 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
       - name: Give Executable Permissions
-        run: chmod +x my-scripy.py
+        run: chmod +x my-script.py
       - name: Run Script
         run: ./my-script.py
