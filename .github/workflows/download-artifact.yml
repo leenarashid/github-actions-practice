@@ -12,7 +12,7 @@ jobs:
              mkdir my-folder2
              echo "This file is created for download artifact workflow" > my-folder2/output2.txt
       - name: Upload artifact
-        uses: actions/upload-atrifact@v4
+        uses: actions/upload-artifact@v4
         with:
             name: my-artifact-foler2
             path: my-folder2/output2.txt
