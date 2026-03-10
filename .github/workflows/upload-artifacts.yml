@@ -1,0 +1,16 @@
+name: Upload Artifacts
+on:
+  workflow_dispatch:
+jobs:
+  upload-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Checkout
+        run: actions/checkout@v4
+      - name: Create File 
+        run: echo "This is the file created for artifact upload" > output.txt
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-file
+          path: output.txt
