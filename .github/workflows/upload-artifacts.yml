@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Create Folder
         run:  |
-            mkdir -p my-folder/output.txt
+            mkdir -p my-folder #First a folder needs to be created
             echo "This is the file created for artifact upload" > my-folder/output.txt
       - name: Upload artifact
         uses: actions/upload-artifact@v4
