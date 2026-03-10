@@ -7,10 +7,12 @@ jobs:
     steps:
       - name: Code Checkout
         run: actions/checkout@v4
-      - name: Create File 
-        run: echo "This is the file created for artifact upload" > output.txt
+      - name: Create Folder
+        run:  |
+            mkdir -p my-folder/output.txt
+            echo "This is the file created for artifact upload" > my-folder/output.txt
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: my-file
-          path: output.txt
+          name: my-artifact-folder
+          path: my-folder/output.txt
