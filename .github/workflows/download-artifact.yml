@@ -14,5 +14,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-atrifact@V4
         with:
-            name: my-artifact
+            name: my-artifact-foler2
             path: my-folder2/output.txt
