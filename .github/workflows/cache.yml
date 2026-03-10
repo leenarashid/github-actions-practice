@@ -16,6 +16,6 @@ jobs:
       - name: Start Node.js app
         run: |
           echo "Starting app..."
-          node app.js &
+          node-app.js &
           curl http://localhost:3000/
          
