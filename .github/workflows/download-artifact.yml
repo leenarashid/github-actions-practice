@@ -20,6 +20,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: my-artifact-folder2
-          path: my-folder2
+          path: my-folder2  #TO DOWNLOAD ONLY FOLDER NAME IS REQUIRED,NOT THE FILE NAME 
       - name: Verify artifact download
         run: cat my-folder2/output2.txt
