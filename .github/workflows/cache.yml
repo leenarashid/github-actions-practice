@@ -5,7 +5,7 @@ jobs:
   cache-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Code Checkout
+      - name: Code-Checkout
         uses: actions/checkout@v4
       - name: Setting up Node
         uses: actions/setup-node@v3
