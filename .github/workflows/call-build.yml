@@ -9,4 +9,4 @@ jobs:
       app_name: "myapp"
       environment: "production"
     secrets:
-      docker_token: ${{ secrets.DOCKER_TOKEN }}
+      docker_token: ${{ secrets.DOCKERHUB_TOKEN }}
