@@ -6,7 +6,7 @@ on:
         required: true
         type: string
       environment:
-        required: true
+        required: false # just in case user wants anyother environment, it will work.
         type: string
         default: staging
     secrets:
