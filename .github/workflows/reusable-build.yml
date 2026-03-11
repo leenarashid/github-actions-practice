@@ -19,7 +19,7 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v4
       - name: Print Info 
-        run:  echo "The app is: ${{ inputs.app_name }} for ${{ inputs.environment }}"
+        run:  echo "${{ inputs.app_name }}"
       - name: Print Token
         run: |
             if [ -n "${{ secrets.docker_token }}" ]; then
