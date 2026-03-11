@@ -22,7 +22,7 @@ jobs:
         run:  echo "The app is: ${{ inputs.app_name }} for ${{ inputs.environment }}"
       - name: Print Token
         run: |
-            if [ -n "${{secrets.docker_token}}" ]; then
+            if [ -n "${{ secrets.docker_token }}" ]; then
             echo "true"
             fi
              
