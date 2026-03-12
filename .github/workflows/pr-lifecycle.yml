@@ -23,7 +23,9 @@ jobs:
             echo "The target branch is: ${{github.event.pull_request.base.ref}} "
       - name: PR Merge Check
         run: |
-           if: github.event.action == 'closed' && github.event.pull_request.merged == true
-            run: echo "This step runs only when the PR is merged!"
+           if [[ github.event.action == 'closed' && github.event.pull_request.merged == true ]]; then
+              run: echo "This step runs only when the PR is merged!"
+
+           fi   
          
       
