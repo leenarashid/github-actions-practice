@@ -10,6 +10,11 @@ inputs:
    required: false
    type: string
    default: en
+ outpus:
+   description: Prints greet message
+   value: ${{ steps.greet.outputs.greeted }}
+ 
+   
  runs:
    using: composite
    steps: 
@@ -31,4 +36,4 @@ inputs:
         id: greet
         run: echo "greeted: true" >> "$GITHUB_OUTPUT"
         shell: bash
-                
+            
