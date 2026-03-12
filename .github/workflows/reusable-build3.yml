@@ -1,4 +1,3 @@
----
 name: Reusable Build
 on:
   workflow_call:
@@ -14,14 +13,14 @@ on:
       docker_token:
         required: true
     outputs:
-      build-version:
+      build-task:
         description: This is the first output string
         value: ${{ jobs.build.outputs.outputs1 }}
 jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      outputs1: ${{ steps.version.outputs.word }}
+      outputs1: ${{ steps.set-version.outputs.build-version }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -32,8 +31,10 @@ jobs:
           if [ -n "${{ secrets.docker_token }}" ]; then   
             echo "Docker token is set: true"
            fi   
-      - name: Set Output
-        id: version
-        run: echo "word=hello" >> $GITHUB_OUTPUT
-      - name: Print Output
-        run: echo "${{ steps.version.outputs.word }}"
+
+      - name: Generate a version
+        id: set-version
+        run: |
+         BUILD_VERSION="v1.0-${GITHUB_SHA::7}"
+         echo "build_version=$BUILD_VERSION" >> $GITHUB_OUTPUT
+         echo "Generated build version: $BUILD_VERSION"
