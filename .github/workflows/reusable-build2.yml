@@ -1,0 +1,30 @@
+name: Reusable Build
+
+on:
+  workflow_call:
+    inputs:
+      app_name:
+        required: true
+        type: string
+      environment:
+        required: false
+        type: string
+        default: staging
+    secrets:
+      docker_token:
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Print Info
+        run: echo "The ${{ inputs.app_name }} is for ${{inputs.environment}}"
+      - name: Docker Token
+        run: |
+           if [ -n "${{ secrets. DOCKERHUB_TOKEN }}" ]; then   
+             echo "Docker token is set: ${{ secrets.DOCKERHUB_TOKEN }}"
+            fi           
