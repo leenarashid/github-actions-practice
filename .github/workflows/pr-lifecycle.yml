@@ -25,7 +25,6 @@ jobs:
         run: |
            if [[ github.event.action == 'closed' && github.event.pull_request.merged == true ]]; then
               run: echo "This step runs only when the PR is merged!"
-
-           fi   
+              fi   
          
       
