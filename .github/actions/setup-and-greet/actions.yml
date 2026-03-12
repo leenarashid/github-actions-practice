@@ -20,15 +20,15 @@ inputs:
              elif:
                 echo "Enter desired language ${{ inputs.language }}"
             fi
-       shell bash     
+       shell: bash     
       - name: Print System Info
         run: |
             echo "Current date: ${{ date }}"
             echo "Runner OS: $RUNNER_OS"
-        shell bash
+        shell: bash
 
       - name: Set Output
         id: greet.output
-        run: echo "greeted: true" >> $GITHUB_OUTPUT 
-        shell bash
+        run: echo "greeted: true" >> "$GITHUB_OUTPUT"
+        shell: bash
                 
