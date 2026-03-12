@@ -22,7 +22,10 @@ jobs:
             echo "The source branch is: ${{github.event.pull_request.head.ref}}"
             echo "The target branch is: ${{github.event.pull_request.base.ref}} "
       - name: PR Merge Check
-        if: ${{ github.event.pull_request.merged == true }}
-        run : echo "The condition is true "      
+        if:  ${{ github.event.pull_request.merged == true }}
+        run: |
+          echo "The PR was merged! 
+          echo "Merged PR Title: ${{ github.event.pull_request.title }}"
+          echo "Merged by: ${{ github.actor }}" 
          
       
