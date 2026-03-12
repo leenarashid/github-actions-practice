@@ -25,6 +25,6 @@ jobs:
         run: echo "The ${{ inputs.app_name }} is for ${{inputs.environment}}"
       - name: Docker Token
         run: |
-           if [ -n "${{ secrets. DOCKERHUB_TOKEN }}" ]; then   
-             echo "Docker token is set: ${{ secrets.DOCKERHUB_TOKEN }}"
+           if [ -n "${{ secrets. docker_token }}" ]; then   
+             echo "Docker token is set: ${{ secrets.docker_token }}"
             fi           
