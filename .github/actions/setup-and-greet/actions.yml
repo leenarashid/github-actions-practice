@@ -28,7 +28,7 @@ inputs:
         shell: bash
 
       - name: Set Output
-        id: greet-step
+        id: greet
         run: echo "greeted: true" >> "$GITHUB_OUTPUT"
         shell: bash
                 
