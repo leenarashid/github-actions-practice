@@ -15,7 +15,7 @@ inputs:
 outputs:
   greeted:
     description: Prints greet message
-
+    value: ${{ steps.greet.outputs.greeted}}
 runs:
   using: composite
   steps:
