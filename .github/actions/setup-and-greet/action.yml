@@ -1,39 +1,41 @@
 name: Set-Up And Greet
-description: A composite action that prints (required tasks' output and set outputs)
-inputs:
- name: 
-   description: Name o the person to greet
-   required: true
-   type: string
- language:
-   description: Language you want 
-   required: false
-   type: string
-   default: en
- outpus:
-   description: Prints greet message
-   value: ${{ steps.greet.outputs.greeted }}
- 
-   
- runs:
-   using: composite
-   steps: 
-     - name: Print Greetings
-       run: |
-           if [ ${{inputs.language == "en" }} ]; then
-             echo "HELLO! ${{ inputs.name }}"
-             elif:
-                echo "Enter desired language ${{ inputs.language }}"
-            fi
-       shell: bash     
-      - name: Print System Info
-        run: |
-            echo "Current date: ${{ date }}"
-            echo "Runner OS: $RUNNER_OS"
-        shell: bash
+description: A composite action that prints a greeting, system info, and sets an output
 
-      - name: Set Output
-        id: greet
-        run: echo "greeted: true" >> "$GITHUB_OUTPUT"
-        shell: bash
-            
+inputs:
+  name:
+    description: Name of the person to greet
+    required: true
+    type: string
+  language:
+    description: Language you want
+    required: false
+    type: string
+    default: en
+
+outputs:
+  greeted:
+    description: Prints greet message
+
+runs:
+  using: composite
+  steps:
+    - name: Print Greetings
+      shell: bash
+      run: |
+        if [ "${{ inputs.language }}" = "en" ]; then
+          echo "HELLO! ${{ inputs.name }}"
+        else
+          echo "Enter desired language: ${{ inputs.language }}"
+        fi
+
+    - name: Print System Info
+      shell: bash
+      run: |
+        echo "Current date: $(date)" # donot put curly brackets
+        echo "Runner OS: $RUNNER_OS"
+
+    - name: Set Output
+      id: greet
+      shell: bash
+      run: |
+        echo "greeted=true" >> $GITHUB_OUTPUT
