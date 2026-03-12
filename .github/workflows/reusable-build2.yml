@@ -1,4 +1,4 @@
-name: Reusable Build
+name: Reusable Build2
 
 on:
   workflow_call:
@@ -26,5 +26,5 @@ jobs:
       - name: Docker Token
         run: |
            if [ -n "${{ secrets. docker_token }}" ]; then   
-             echo "Docker token is set: ${{ secrets.docker_token }}"
+             echo "Docker token is set: true"
             fi           
