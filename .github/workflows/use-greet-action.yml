@@ -18,4 +18,5 @@ jobs:
           language: "en"
 
       - name: Print Action Output
-        run:  echo "Greeted value: ${{ steps.greet.outputs.greeted }}"
+        run:  |
+            echo "Greeted value: ${{ steps.greet.outputs.greeted }}"
