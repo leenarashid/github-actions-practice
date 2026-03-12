@@ -1,5 +1,5 @@
+---
 name: Reusable Build
-
 on:
   workflow_call:
     inputs:
@@ -13,34 +13,27 @@ on:
     secrets:
       docker_token:
         required: true
-
-    output: 
+    outputs:
       build-version:
-        description: "This is the first output string"
+        description: This is the first output string
         value: ${{ jobs.build.outputs.outputs1 }}
-        
-        
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    output:
-      outputs1:${{ steps.version.outputs.word }}
-        
+    outputs:
+      outputs1: ${{ steps.version.outputs.word }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-
       - name: Print Info
         run: echo "The ${{ inputs.app_name }} is for ${{ inputs.environment }}"
       - name: Docker Token
         run: |
-           if [ -n "${{ secrets.docker_token }}" ]; then   
-             echo "Docker token is set: true"
-            fi   
+          if [ -n "${{ secrets.docker_token }}" ]; then   
+            echo "Docker token is set: true"
+           fi   
       - name: Set Output
-          id: version
-         run: echo "word=hello" >> $GITHUB_OUTPUT
+        id: version
+        run: echo "word=hello" >> $GITHUB_OUTPUT
       - name: Print Output
-        run : echo "${{ steps.version.outputs.word }}"
-           
+        run: echo "${{ steps.version.outputs.word }}"
