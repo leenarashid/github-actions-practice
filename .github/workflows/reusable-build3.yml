@@ -20,7 +20,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      outputs1: ${{ steps.set-version.outputs.build-version }}
+      outputs1: ${{ steps.set-version.outputs.build_version }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
