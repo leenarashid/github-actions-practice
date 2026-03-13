@@ -18,7 +18,7 @@ jobs:
                  echo "The schedule is triggered on ${{ github.event.schedule }}"
                  
               fi
-              echo "The schedule is triggered on ${{ github.event.schedule }}"
+        
       - name: Health Check 
         run: |
            STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://www.trainwithshubham.com/)
