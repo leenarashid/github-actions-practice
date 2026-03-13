@@ -1,4 +1,4 @@
-name: Deploy After Tests
+name: Deploy After the Tests
 
 on:
   workflow_run:
