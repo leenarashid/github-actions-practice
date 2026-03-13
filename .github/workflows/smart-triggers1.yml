@@ -1,0 +1,20 @@
+name: Smart Triggers
+on:  
+  push:
+    paths:
+      - 'src/**'
+      - 'app/**'
+jobs:
+   check-path:
+     runs-on: ubuntu-latest
+     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: 
+        run: echo "Runs on push trigger on src/ and app/"
+          
+
+
+
+
+      
