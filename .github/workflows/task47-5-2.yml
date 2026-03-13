@@ -7,13 +7,20 @@ on:
 
 jobs:
   deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}  
+   # if: ${{ github.event.workflow_run.conclusion == 'success' }}  
     runs-on: ubuntu-latest
 
     steps:
+      - name: stop if test fail
+        if: ${{ github.event.workflow_run.conclusion != 'success' }}
+        run: |
+         echo "TEST FAIL"
+          exit 1
+        
+    
       - name: Checkout code
         uses: actions/checkout@v4
-
+      
       - name: Deploy
         run: |
           echo "Tests passed, deploying application..."
