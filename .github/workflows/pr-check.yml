@@ -8,20 +8,23 @@ jobs:
   file-size-check:
     runs-on: ubuntu-latest
     steps:
-      - name: Code Checkout
+      - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+           fetch-depth: 0   # fetch all history
+
+      - name: Ensure main exists locally
+        run: git fetch origin main:main
+
       - name: Check File Size
         run: |
-         git fetch origin main:main   
-         files=$(git diff --name-only origin/main...HEAD)
-
-         for f in $files; do
-          size=$(wc -c < "$f")
-         if [ "$size" -gt 1048576 ]; then
-           echo "File $f is too big ($size bytes)"
-           exit 1
-         fi
-         done
+            for f in $(git diff --name-only main...HEAD); do
+            size=$(wc -c < "$f")
+             if [ "$size" -gt 1048576 ]; then
+               echo "File $f is too big ($size bytes)"
+              exit 1
+               fi
+             done
 
   branch-name-check:
     runs-on: ubuntu-latest
