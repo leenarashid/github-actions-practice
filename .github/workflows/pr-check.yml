@@ -12,8 +12,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Check File Size
         run: |
-    
-         git fetch origin main  #to fetch the main branch to make "git diff" work
+         git fetch origin main 
          files=$(git diff --name-only origin/main...HEAD)
 
          for f in $files; do
