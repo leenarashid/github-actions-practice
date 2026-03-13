@@ -1,29 +1,23 @@
-name: Script Checker 
+name: Script Checker
+
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
+
 jobs:
   script-check:
     runs-on: ubuntu-latest
+
     steps:
       - name: Code Checkout
         uses: actions/checkout@v4
-      - name: Setup Python
-        uses: actions/setup-python@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-              python-version: "3.12"
+          node-version: "20"
+
       - name: Install Dependencies
-        run: pip install -r requirements.txt
-      
-      - name: Make executable
-        run: chmod +x my-script.py
-      - name: Run script
-        run: python my-script.py
+        run: npm install
 
-
-
-        # Exit code	Meaning	Example
-# 0	Success	python my_script.py runs fine
-# 1	General error	Command failed for some reason (chmod myfile if file doesn’t exist)
- # 2	Misuse of shell builtins / syntax error	Wrong command syntax, invalid option (ls --fakeflag)
-# 127	Command not found	Trying to run docker-compose but Docker isn’t installed
-# 126	Command found but not executable	Trying to run a script without execute permissions
+      - name: Run Script
+        run: node app.js
