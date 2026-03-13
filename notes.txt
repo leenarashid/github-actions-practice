@@ -1,0 +1,13 @@
+####Task5 of 47:What is test_app.py?
+
+test_app.py is a test file that checks if your application works correctly.
+
+It contains small test functions that verify things like:
+
+Does your Flask app start?
+
+Does the homepage return a response?
+
+Does the API return the correct status code?
+
+It is usually run by a testing framework like pytest or else pytest alon with result in failure or zero output.
