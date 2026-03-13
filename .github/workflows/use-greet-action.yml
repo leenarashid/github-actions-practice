@@ -18,6 +18,6 @@ jobs:
           name: "ABC"
           language: "en"
 
-      - name: Print Action Output
+      - name: Print the Action Output
         run:  |
             echo "Greeted value: ${{ steps.greet.outputs.greeted }}"
