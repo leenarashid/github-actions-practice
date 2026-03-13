@@ -6,7 +6,7 @@ jobs:
   depoy:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Environment
+      - name: Print the Environment
         run: |
             echo " The payload environment is : ${{ github.event.client_payload.environment }}"
 
