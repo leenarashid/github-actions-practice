@@ -30,4 +30,4 @@ jobs:
 
   
       - name: Test server
-        run: curl http://localhost:5000
+        run: curl http://localhost:5001
