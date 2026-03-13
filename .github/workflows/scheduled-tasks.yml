@@ -13,7 +13,9 @@ jobs:
       - name: Print Schedule Trigger
         run: |
             echo "The schedule is triggered on ${{ github.event.schedule }}"
-              STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://www.trainwithshubham.com/)
+      - name: Health Check 
+        run: |
+           STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://www.trainwithshubham.com/)
               echo "HTTP Status: $STATUS"
                if [ "$STATUS" -ne 200 ]; then
                  echo "Health check failed!"
