@@ -14,8 +14,10 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
       
-      - name: Run Script
-        run: python my-script.py
+      - name: Make executable
+        run: chmod +x my-script.py
+      - name: Run script
+        run: ./my-script.py
 
 
 
