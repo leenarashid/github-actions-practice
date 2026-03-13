@@ -17,7 +17,7 @@ jobs:
       - name: Make executable
         run: chmod +x my-script.py
       - name: Run script
-        run: ./my-script.py
+        run: python my-script.py
 
 
 
