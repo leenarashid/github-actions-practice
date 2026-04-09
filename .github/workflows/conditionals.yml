@@ -28,8 +28,8 @@ jobs:
       - name: runs only on push events
         run: echo "Only run on push events"
         
-      # - name: continue-on-error
-      #   run: |
-      #     echo "The step results in failure"
-      #     exit 1
-      #   continue-on-error: true
+      - name: continue-on-error
+        run: |
+          echo "The step results in failure"
+          exit 1
+        continue-on-error: true
