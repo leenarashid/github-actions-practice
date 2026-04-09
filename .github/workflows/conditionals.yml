@@ -1,5 +1,4 @@
-# Conditionals: `if: github.ref == 'refs/heads/main'`
-name: conditional-demo
+name: Cnditional Workflow
 
 on:
  push:
@@ -9,28 +8,28 @@ on:
  workflow_dispatch:
 
 jobs:
-  when_main:
+  on_main:
    runs-on: ubuntu-latest
    steps:
-     - name: runs when the branch is main
+     - name: runs only on main-branch
        if: github.ref == 'refs/heads/main'
        run: |
-        echo "runs when the branch is main"
-        # exit 1
+        echo "Runs only on main branch"
+        exit 1
 
-     - name: only runs when the previous step failed
+     - name: runs when the previous step fails
        if: failure()
-       run: echo "Previous step failed....."
+       run: echo "Previous step has been failed."
 
   on-push:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - name: only run on push events
+      - name: runs only on push events
         run: echo "Only run on push events"
         
-      - name: step with continue-on-error
+      - name: continue-on-error
         run: |
-          echo "This step will fail"
+          echo "The step results in failure"
           exit 1
         continue-on-error: true
