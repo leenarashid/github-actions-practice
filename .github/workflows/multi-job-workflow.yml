@@ -1,5 +1,5 @@
 
-name: Multijob Workflow
+name: Multi-job Workflow
 on:
   workflow_dispatch:
 jobs:
