@@ -7,7 +7,7 @@ jobs:
   pr-lifecycle:
     runs-on: ubuntu-latest
     steps:
-      - name: Code Checkout
+      - name: Code checkout
         uses: actions/checkout@v4
       - name: Print Event Type
         run: |
