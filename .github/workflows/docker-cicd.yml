@@ -22,8 +22,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Set short SHA using slice
         run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
@@ -36,8 +36,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/webapp:latest
-            ${{ secrets.DOCKER_USERNAME }}/webapp:sha-${{ env.SHORT_SHA }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/webapp:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/webapp:sha-${{ env.SHORT_SHA }}
 
     # Build only for feature branches and PRs
       - name: Build image if pushed from other branches or PRs
