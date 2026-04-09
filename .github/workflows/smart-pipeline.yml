@@ -1,4 +1,4 @@
-name: Smart-Pipeline
+name: Smart Pipeline
 
 on:
  push: 
