@@ -26,4 +26,4 @@ ENV FLASK_ENV=production
 
 # Command to run the application (using python run.py to run initialization script)
 
-CMD ["gunicorn", "run:app", "-b", "0.0.0.0:5000"]
+CMD ["gunicorn", "app:app", "-b", "0.0.0.0:5000"]
