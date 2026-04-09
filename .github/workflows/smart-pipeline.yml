@@ -7,7 +7,7 @@ jobs:
   lint-test:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code
+      - name: Code Checkout
         uses: actions/checkout@v4
 
       - name: setup python
