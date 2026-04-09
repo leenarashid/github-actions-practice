@@ -36,7 +36,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/webapp:cicd-tag1
+            ${{ secrets.DOCKERHUB_USERNAME }}/webapp:cicd-tag2
             ${{ secrets.DOCKERHUB_USERNAME }}/webapp:sha-${{ env.SHORT_SHA }}
 
     # Build only for feature branches and PRs
