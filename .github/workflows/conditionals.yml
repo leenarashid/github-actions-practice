@@ -17,13 +17,13 @@ jobs:
         echo "Runs only on main branch"
         # exit 1
 
-  #    - name: runs when the previous step fails
-  #      if: failure()
-  #      run: echo "Previous step has been failed."
+     - name: runs when the previous step fails
+       if: failure()
+       run: echo "Previous step has been failed."
 
   # on-push:
   #   if: github.event_name != 'pull_request'
-  #   runs-on: ubuntu-latest
+  #   runs-on: ubuntu-latest 
   #   steps:
   #     - name: runs only on push events
   #       run: echo "Only run on push events"
