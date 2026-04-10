@@ -1,4 +1,4 @@
-name: Smart Triggers
+name: Smart Trigger1
 on:  
   push:
     paths:
