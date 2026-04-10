@@ -1,2 +1,3 @@
 Hiii helllooooo
 Testing for "synchronized"
+devops is about automation
