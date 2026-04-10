@@ -25,7 +25,7 @@ jobs:
       - name: PR Merge Check
         if:  ${{ github.event.pull_request.merged == true }}
         run: |
-          echo "The PR was merged! 
+          echo "The PR was merged!"
           echo "Merged PR Title: ${{ github.event.pull_request.title }}"
           echo "Merged by: ${{ github.actor }}" 
          
